@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="148" height="44" viewBox="0 0 148 44">
+  <rect x="1" y="1" width="146" height="42" rx="7" fill="#fff" stroke="#101418" stroke-width="2"/>
+  <path d="M8 2h28v40H8a6 6 0 0 1-6-6V8a6 6 0 0 1 6-6Z" fill="#0b3d91"/>
+  <text x="19" y="26" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ffd100">UA</text>
+  <text x="89" y="29" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="1" fill="#101418">КЕРМО</text>
+</svg>

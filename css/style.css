@@ -1,0 +1,1153 @@
+@font-face {
+  font-family: Onest;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/onest-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Onest;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/onest-bold.ttf") format("truetype");
+}
+
+/* 1. База і змінні: значення з макета WEB1 */
+:root {
+  --accent: #ffd100;
+  --blue: #0b3d91;
+  --price: #0b3d91;
+  --ink: #101418;
+  --muted: rgb(16 20 24 / 70%);
+  --muted-label: rgb(16 20 24 / 65%);
+  --black: #000;
+  --soft: #f2f3f4;
+  --line: rgb(16 20 24 / 20%);
+  --white: #fff;
+  --ink-hover: #2a3035;
+  --accent-hover: #ffe15c;
+  --text-on-blue: #fff;
+  --line-on-blue: rgb(255 255 255 / 30%);
+  --muted-on-blue: rgb(255 255 255 / 75%);
+  --text-on-dark: #fff;
+  --muted-on-dark: rgb(255 255 255 / 65%);
+  --secondary-on-dark: rgb(255 255 255 / 70%);
+  --line-on-dark: rgb(255 255 255 / 20%);
+  --media-overlay: rgb(8 14 22 / 72%);
+  --menu-shadow: 0 16px 30px rgb(16 20 24 / 16%);
+  --column-gap: 24px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Onest, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--ink);
+  background: var(--white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 59px;
+  letter-spacing: -1.12px;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 46px;
+  letter-spacing: -0.4px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--price);
+  outline-offset: 5px;
+}
+
+section, footer, .car__details {
+  scroll-margin-top: 24px;
+}
+
+/* 2. Спільні контейнери: 1200 px вмісту і поля по 120 px на макеті 1440 */
+.container {
+  width: 100%;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.two-columns {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--column-gap);
+}
+
+.two-columns > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.section-intro p {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 11px 24px;
+  border: 0;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 700;
+  text-align: center;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.btn--dark {
+  color: var(--accent);
+  background: var(--ink);
+}
+
+.btn--dark:hover {
+  background: var(--ink-hover);
+}
+
+.btn--accent {
+  color: var(--ink);
+  background: var(--accent);
+}
+
+.btn--accent:hover {
+  background: var(--accent-hover);
+}
+
+.btn--outline {
+  border: 2px solid var(--ink);
+  padding: 9px 24px;
+  background: var(--white);
+}
+
+.btn--outline:hover {
+  background: var(--soft);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 24px;
+  padding: 12px;
+  background: var(--white);
+}
+
+.skip-link:focus {
+  top: 12px;
+  z-index: 1;
+}
+
+/* 3. Шапка */
+.header {
+  border-bottom: 2px solid var(--ink);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 78px;
+}
+
+.logo {
+  display: inline-flex;
+  flex: 0 0 149px;
+  width: 149px;
+  min-height: 44px;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--white);
+  font-weight: 700;
+}
+
+.logo__country {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 35px;
+  color: var(--accent);
+  background: var(--blue);
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.logo__name {
+  display: block;
+  padding: 8px 16px;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 1.2px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__phone {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.header__inner {
+  position: relative;
+}
+
+/* Візуально прихований checkbox зберігає доступність із клавіатури.
+На ПК visibility прибирає непотрібний перемикач із порядку Tab. */
+.nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  visibility: hidden;
+}
+
+.burger {
+  display: none;
+}
+
+/* 4. Перший екран: початковий текст поверх фонового фото (модуль 04). */
+
+/* У Figma текст 331 px центрований у блоці 400 px з полями 80 px:
+80 + (400 - 331) / 2 = 114.5 px. Висота секції залишається від вмісту. */
+.hero {
+  padding: 114.5px 0;
+  color: var(--white);
+  background: var(--ink);
+}
+
+.hero__content {
+  max-width: 588px;
+}
+
+.hero__content p {
+  max-width: 520px;
+  margin: 16px 0 32px;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+/* 5. Автомобілі. Рядки і колонки — Flexbox, без таблиць та Grid */
+.inventory {
+  padding: 80px 0;
+  border: 1px solid var(--black);
+}
+
+.inventory .container {
+  max-width: 1246px;
+}
+
+.inventory__intro {
+  margin-top: 132px;
+  margin-bottom: 48px;
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+.car-list {
+  border-top: 2px solid var(--ink);
+}
+
+.car-list__head {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted-label);
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.car-list__name {
+  flex: 1;
+  padding-left: 216px;
+}
+
+.car-list__year, .car__year {
+  flex: 0 0 80px;
+}
+
+.car-list__mileage, .car__mileage {
+  flex: 0 0 128px;
+}
+
+.car-list__price, .car__price {
+  flex: 0 0 144px;
+}
+
+.car-list__action {
+  flex: 0 0 144px;
+}
+
+.car__action {
+  flex: 0 0 145px;
+}
+
+.car {
+  border-bottom: 1px solid var(--line);
+}
+
+.car__row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.car__image {
+  flex: 0 0 192px;
+  width: 192px;
+  aspect-ratio: 192 / 120;
+  object-fit: cover;
+}
+
+.car__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.car__info p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.car__mobile-specs {
+  display: none;
+}
+
+.car__price {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: var(--price);
+  white-space: nowrap;
+}
+
+.car__details {
+  display: none;
+  padding: 0 0 24px 216px;
+}
+
+.car__details:target {
+  display: block;
+}
+
+.car__details a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 12px;
+  color: var(--price);
+  font-weight: 700;
+}
+
+/* 6. Перевірка. Картки розтягуються по висоті відповідно до свого вмісту */
+.inspection {
+  padding: 80px 0;
+  background: var(--soft);
+}
+
+.inspection .section-intro p {
+  max-width: 440px;
+}
+
+.benefits {
+  border-top: 2px solid var(--ink);
+}
+
+.benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.benefit img {
+  flex: 0 0 40px;
+}
+
+.benefit > div {
+  min-width: 0;
+}
+
+.benefit p {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+/* 7. Обмін і кредит */
+.finance {
+  padding: 80px 0;
+  color: var(--white);
+  background: var(--blue);
+}
+
+.finance .section-intro p {
+  color: var(--text-on-blue);
+}
+
+.finance .btn {
+  margin-top: 32px;
+}
+
+.finance__terms > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line-on-blue);
+}
+
+.finance__terms dt {
+  color: var(--muted-on-blue);
+}
+
+.finance__terms dd {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* 8. Відгуки */
+.reviews {
+  padding: 80px 0;
+}
+
+.reviews__inner {
+  margin-top: 48px;
+  gap: 24px;
+}
+
+.reviews__inner > .review--featured {
+  flex: 608;
+}
+
+.reviews__inner > .reviews__list {
+  flex: 568;
+}
+
+.review figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.review figcaption span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.review--featured {
+  padding-left: 32px;
+  border-left: 8px solid var(--accent);
+}
+
+.review--featured blockquote p {
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 700;
+  letter-spacing: -0.16px;
+}
+
+.review--featured figcaption {
+  margin-top: 24px;
+}
+
+.reviews__list .review {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+/* 9. Контакти і підвал */
+.footer {
+  padding: 80px 0 48px;
+  color: var(--white);
+  background: var(--ink);
+}
+
+.footer__phone {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 16px;
+  color: var(--accent);
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.footer__address {
+  margin-top: 24px;
+  font-style: normal;
+}
+
+.footer__address p {
+  font-size: 18px;
+  line-height: 29px;
+  color: var(--text-on-dark);
+}
+
+.footer__address p + p {
+  margin-top: 16px;
+}
+
+.footer__address span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted-on-dark);
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.footer .btn {
+  margin-top: 24px;
+}
+
+.footer__map {
+  display: block;
+}
+
+.footer__map img {
+  width: 100%;
+  aspect-ratio: 588 / 256;
+  object-fit: cover;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-on-dark);
+  color: var(--secondary-on-dark);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* 10. Медійні секції. Висоту формує вміст і padding, а не height. */
+.hero,
+.finance {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--ink);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero {
+  background-image: url("../img/showroom-background.webp");
+}
+
+.finance {
+  overflow: hidden;
+  background-image: url("../img/showroom-car-poster.webp");
+}
+
+.hero::before,
+.finance::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--media-overlay);
+  pointer-events: none;
+}
+
+.finance__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__inner,
+.finance__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* 11. Адаптивність. Правила йдуть після бази, від ширшого екрана до вужчого. */
+
+/* Невеликий ноутбук: ущільнюємо шапку та колонки списку авто. */
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 44px;
+    line-height: 47px;
+  }
+
+  h2 {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .header__inner, .header__actions {
+    gap: 16px;
+  }
+
+  .menu {
+    gap: 16px;
+    font-size: 14px;
+  }
+
+  .header__phone {
+    display: none;
+  }
+
+  /* Номер залишається в контактах. */
+  .car__row, .car-list__head {
+    gap: 16px;
+  }
+
+  .car__image {
+    flex-basis: 144px;
+    width: 144px;
+  }
+
+  .car-list__name {
+    padding-left: 160px;
+  }
+
+  .car-list__year, .car__year {
+    flex-basis: 56px;
+  }
+
+  .car-list__mileage, .car__mileage {
+    flex-basis: 96px;
+  }
+
+  .car-list__price, .car__price {
+    flex-basis: 112px;
+  }
+
+  .car-list__action, .car__action {
+    flex-basis: 124px;
+  }
+
+  .car__action {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .car__info h3, .car__price {
+    font-size: 20px;
+  }
+
+  .car__details {
+    padding-left: 160px;
+  }
+}
+
+/* Планшет: колонки стають стовпчиками, навігація ховається за бургером. */
+@media (max-width: 900px) {
+  .two-columns {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .two-columns > * {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .reviews__inner > .review--featured, .reviews__inner > .reviews__list {
+    flex: 1 1 auto;
+  }
+
+  .hero, .inventory, .inspection, .finance, .reviews {
+    padding: 48px 0;
+  }
+
+  .footer {
+    padding-top: 48px;
+  }
+
+  .inventory__intro {
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+
+  .header__inner {
+    min-height: 70px;
+  }
+
+  .header__actions {
+    display: none;
+  }
+
+  .nav-toggle {
+    visibility: visible;
+  }
+
+  .burger {
+    display: block;
+    position: relative;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    background: var(--ink);
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .nav-toggle:focus-visible + .burger {
+    outline: 3px solid var(--price);
+    outline-offset: 4px;
+  }
+
+  .burger > span:first-child,
+  .burger > span:first-child::before,
+  .burger > span:first-child::after {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    transition: transform .25s ease, background-color .25s ease, top .25s ease;
+  }
+
+  .burger > span:first-child {
+    top: 23px;
+    left: 12px;
+  }
+
+  .burger > span:first-child::before {
+    content: "";
+    top: -10px;
+    left: 0;
+  }
+
+  .burger > span:first-child::after {
+    content: "";
+    top: 10px;
+    left: 0;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+    background: var(--white);
+    box-shadow: var(--menu-shadow);
+    visibility: hidden;
+    transform: translateY(-16px);
+    opacity: 0;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 24px 24px;
+    font-size: 16px;
+  }
+
+  .menu a {
+    display: flex;
+    min-height: 48px;
+    padding: 11px 0;
+  }
+
+  .nav-toggle:checked ~ .nav {
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-toggle:checked ~ .burger > span:first-child {
+    background: transparent;
+  }
+
+  .nav-toggle:checked ~ .burger > span:first-child::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .burger > span:first-child::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .car-list__head {
+    display: none;
+  }
+
+  .car {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(50% - 12px);
+    min-width: 0;
+  }
+
+  .car__row {
+    flex: 1;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .car__image {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 192 / 120;
+    object-fit: cover;
+  }
+
+  .car__info {
+    flex: 1 1 auto;
+  }
+
+  .car__info p {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .car__mobile-specs {
+    display: inline;
+  }
+
+  .car__year, .car__mileage {
+    display: none;
+  }
+
+  /* Ці значення вже показані в описі картки. */
+  .car__price, .car__action {
+    flex: 0 0 auto;
+  }
+
+  .car__price {
+    font-size: 24px;
+  }
+
+  .car__action {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .car__details {
+    padding: 0 0 24px;
+  }
+
+  .footer__phone {
+    font-size: 34px;
+    line-height: 41px;
+  }
+
+  .footer__bottom a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* Смартфон: макет 375 px, поля 16 px і кнопки на всю ширину. */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+    line-height: 34px;
+    letter-spacing: -0.64px;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.28px;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .header__inner {
+    min-height: 62px;
+  }
+
+  .nav {
+    max-height: calc(100dvh - 64px);
+  }
+
+  .menu {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .btn {
+    display: flex;
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .hero__content p {
+    margin: 16px 0 24px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .inventory {
+    border: 0;
+  }
+
+  .inventory__intro {
+    margin-top: 16px;
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .car-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .car {
+    flex: 1 1 auto;
+  }
+
+  .car__row {
+    gap: 16px;
+  }
+
+  .car__image {
+    aspect-ratio: 343 / 160;
+  }
+
+  .car__info h3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .inspection .section-intro p {
+    font-size: 16px;
+  }
+
+  .benefit {
+    gap: 16px;
+  }
+
+  .benefit img {
+    flex-basis: 40px;
+  }
+
+  .benefit p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .section-intro p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .finance .btn {
+    margin-top: 32px;
+  }
+
+  .finance__terms > div {
+    gap: 12px;
+  }
+
+  .finance__terms dt {
+    font-size: 16px;
+  }
+
+  .finance__terms dd {
+    font-size: 24px;
+    white-space: nowrap;
+  }
+
+  .reviews__inner {
+    margin-top: 32px;
+    gap: 32px;
+  }
+
+  .review--featured {
+    padding-left: 16px;
+  }
+
+  .review--featured blockquote p {
+    font-size: 22px;
+    line-height: 29px;
+    letter-spacing: -0.11px;
+  }
+
+  .footer {
+    padding-bottom: 32px;
+  }
+
+  .footer__phone {
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.28px;
+  }
+
+  .footer__main {
+    gap: 32px;
+  }
+
+  .footer__address {
+    margin-top: 24px;
+  }
+
+  .footer__address p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .footer__map img {
+    aspect-ratio: 343 / 160;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 40px;
+  }
+
+  .hero {
+    background-position: 58% center;
+  }
+
+  .finance {
+    background-position: 60% center;
+  }
+
+  .finance__media {
+    object-position: 60% center;
+  }
+}
+
+/* Налаштування доступності незалежне від ширини екрана.
+source[media] також не обирає MP4, якщо зменшення руху ввімкнено до відкриття. */
+@media (prefers-reduced-motion: reduce) {
+  .finance__media {
+    display: none;
+  }
+
+  .finance {
+    background-image: url("../img/showroom-car-poster.webp");
+  }
+
+  .burger > span:first-child,
+  .burger > span:first-child::before,
+  .burger > span:first-child::after,
+  .nav, .btn {
+    transition: none;
+  }
+}

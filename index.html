@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Автосалон у Львові «Кермо» — перевірені авто з гарантією</title>
+  <meta name="description" content="Автосалон «Кермо» у Львові: понад 80 перевірених авто з діагностикою та гарантією. Обмін, кредит і тест-драйв. Завітайте на вул. Стрийську, 100 та оберіть авто.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="img/showroom-background.webp" fetchpriority="high">
+  <link rel="preload" as="font" href="fonts/onest-regular.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="font" href="fonts/onest-bold.ttf" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до вмісту</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#" aria-label="Кермо — головна">
+        <span class="logo__country" aria-hidden="true">UA</span>
+        <span class="logo__name" aria-hidden="true">КЕРМО</span>
+      </a>
+      <!-- Порядок input → label → nav потрібний для селектора :checked ~ .nav. -->
+      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Відкрити або закрити меню" aria-controls="primary-nav">
+      <label class="burger" for="nav-toggle">
+        <span aria-hidden="true"></span>
+        <span class="visually-hidden">Відкрити або закрити меню</span>
+      </label>
+      <nav class="nav" id="primary-nav" aria-label="Основна навігація">
+        <ul class="menu">
+          <li><a href="#cars">Авто в наявності</a></li>
+          <li><a href="#inspection">Перевірка авто</a></li>
+          <li><a href="#finance">Обмін і кредит</a></li>
+          <li><a href="#reviews">Відгуки</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a class="header__phone" href="tel:+380970000000">+38 097 000 00 00</a>
+        <a class="btn btn--dark" href="#contacts">Тест-драйв</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 id="hero-title">Автосалон у Львові: перевірені авто з гарантією</h1>
+          <p>Понад 80 авто в наявності, кожне з діагностикою та звітом про пробіг.</p>
+          <a class="btn btn--accent" href="#contacts">Записатися на тест-драйв</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="inventory" id="cars" aria-labelledby="cars-title">
+      <div class="container">
+        <h2 id="cars-title">Авто в наявності</h2>
+        <p class="inventory__intro">Три найпопулярніші моделі цього тижня.</p>
+        <!-- Це список автомобілів, а не HTML-таблиця. Усі колонки побудовані на Flexbox. -->
+        <div class="car-list">
+          <div class="car-list__head" aria-hidden="true">
+            <span class="car-list__name">Авто</span>
+            <span class="car-list__year">Рік</span>
+            <span class="car-list__mileage">Пробіг</span>
+            <span class="car-list__price">Ціна</span>
+            <span class="car-list__action"></span>
+          </div>
+          <article class="car">
+            <div class="car__row">
+              <img class="car__image" src="img/skoda-octavia.webp" alt="Біла Skoda Octavia, вигляд спереду та збоку" width="760" height="399" loading="lazy" decoding="async">
+              <div class="car__info">
+                <h3>Skoda Octavia</h3>
+                <p><span class="car__mobile-specs">2021, 64 000 км, </span>2.0 дизель, автомат</p>
+              </div>
+              <p class="car__year"><span class="visually-hidden">Рік: </span>2021</p>
+              <p class="car__mileage"><span class="visually-hidden">Пробіг: </span>64 000 км</p>
+              <p class="car__price">17 900 $</p>
+              <a class="btn btn--outline car__action" href="#skoda-details">Детальніше<span class="visually-hidden"> про Skoda Octavia</span></a>
+            </div>
+            <div class="car__details" id="skoda-details">
+              <p>Skoda Octavia, 2021 рік. Двигун 2.0, дизель, автоматична коробка передач. Пробіг — 64 000 км. Ціна — 17 900 $.</p>
+              <a href="#contacts">Домовитися про перегляд →</a>
+            </div>
+          </article>
+          <article class="car">
+            <div class="car__row">
+              <img class="car__image" src="img/volkswagen-tiguan.webp" alt="Білий кросовер Volkswagen Tiguan біля зеленої огорожі" width="760" height="507" loading="lazy" decoding="async">
+              <div class="car__info">
+                <h3>Volkswagen Tiguan</h3>
+                <p><span class="car__mobile-specs">2020, 71 000 км, </span>2.0 бензин, повний привід</p>
+              </div>
+              <p class="car__year"><span class="visually-hidden">Рік: </span>2020</p>
+              <p class="car__mileage"><span class="visually-hidden">Пробіг: </span>71 000 км</p>
+              <p class="car__price">22 400 $</p>
+              <a class="btn btn--outline car__action" href="#tiguan-details">Детальніше<span class="visually-hidden"> про Volkswagen Tiguan</span></a>
+            </div>
+            <div class="car__details" id="tiguan-details">
+              <p>Volkswagen Tiguan, 2020 рік. Двигун 2.0, бензин, повний привід. Пробіг — 71 000 км. Ціна — 22 400 $.</p>
+              <a href="#contacts">Домовитися про перегляд →</a>
+            </div>
+          </article>
+          <article class="car">
+            <div class="car__row">
+              <img class="car__image" src="img/toyota-camry.webp" alt="Біла Toyota Camry на тлі темного фасаду" width="760" height="506" loading="lazy" decoding="async">
+              <div class="car__info">
+                <h3>Toyota Camry</h3>
+                <p><span class="car__mobile-specs">2022, 38 000 км, </span>2.5 гібрид, автомат</p>
+              </div>
+              <p class="car__year"><span class="visually-hidden">Рік: </span>2022</p>
+              <p class="car__mileage"><span class="visually-hidden">Пробіг: </span>38 000 км</p>
+              <p class="car__price">24 900 $</p>
+              <a class="btn btn--outline car__action" href="#camry-details">Детальніше<span class="visually-hidden"> про Toyota Camry</span></a>
+            </div>
+            <div class="car__details" id="camry-details">
+              <p>Toyota Camry, 2022 рік. Двигун 2.5, гібрид, автоматична коробка передач. Пробіг — 38 000 км. Ціна — 24 900 $.</p>
+              <a href="#contacts">Домовитися про перегляд →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="inspection" id="inspection" aria-labelledby="inspection-title">
+      <div class="container two-columns">
+        <div class="section-intro">
+          <h2 id="inspection-title">Що ми перевіряємо перед продажем</h2>
+          <p>Звіт по кожному авто ви отримуєте ще до того, як приїдете в салон.</p>
+        </div>
+        <div class="benefits">
+          <article class="benefit">
+            <img src="img/diagnostics.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+            <div>
+              <h3>Діагностика за 120 пунктами</h3>
+              <p>Двигун, підвіска, електроніка, кузов. Звіт у PDF додаємо до оголошення.</p>
+            </div>
+          </article>
+          <article class="benefit">
+            <img src="img/warranty.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+            <div>
+              <h3>Гарантія до 12 місяців</h3>
+              <p>Вузли, вказані в договорі, ремонтуємо за наш рахунок.</p>
+            </div>
+          </article>
+          <article class="benefit">
+            <img src="img/history.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+            <div>
+              <h3>Перевірена історія</h3>
+              <p>Пробіг, ДТП, обтяження і кількість власників — за базами до продажу.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="finance" id="finance" aria-labelledby="finance-title">
+      <!-- Модуль 04: відеофон у наявному блоці обміну та кредиту. -->
+      <video class="finance__media" poster="img/showroom-car-poster.webp"
+             autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+        <source src="video/showroom-car.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)">
+      </video>
+      <div class="container two-columns finance__inner">
+        <div class="section-intro">
+          <h2 id="finance-title">Обмін і кредит без прихованих платежів</h2>
+          <p>Оцінимо ваше авто, підберемо кредит і покажемо повну суму до підписання договору.</p>
+          <a class="btn btn--accent" href="tel:+380970000000">Розрахувати кредит</a>
+        </div>
+        <dl class="finance__terms">
+          <div><dt>Перший внесок</dt><dd>від 0%</dd></div>
+          <div><dt>Строк кредиту</dt><dd>до 60 місяців</dd></div>
+          <div><dt>Рішення банку</dt><dd>за 1 день</dd></div>
+          <div><dt>Оцінка вашого авто</dt><dd>30 хвилин</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 id="reviews-title">Що кажуть покупці</h2>
+        <div class="two-columns reviews__inner">
+          <figure class="review review--featured">
+            <blockquote><p>Показали звіт діагностики ще до приїзду. На місці вже нічого не довелося перевіряти.</p></blockquote>
+            <figcaption><strong>Андрій, Львів</strong><span>Skoda Octavia</span></figcaption>
+          </figure>
+          <div class="reviews__list">
+            <figure class="review">
+              <blockquote><p>Старе авто оцінили чесно й зарахували в оплату нового. Усе за один день.</p></blockquote>
+              <figcaption><strong>Марина, Винники</strong><span>Volkswagen Tiguan</span></figcaption>
+            </figure>
+            <figure class="review">
+              <blockquote><p>Через місяць з’явився шум у підвісці — замінили безкоштовно за гарантією.</p></blockquote>
+              <figcaption><strong>Олег, Городок</strong><span>Toyota Camry</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="two-columns footer__main">
+        <div>
+          <h2>Приїжджайте на тест-драйв</h2>
+          <a class="footer__phone" href="tel:+380970000000">+38 097 000 00 00</a>
+          <address class="footer__address">
+            <p><span>Адреса</span>Львів, вул. Стрийська, 100</p>
+            <p><span>Графік</span>Щодня з 9:00 до 20:00</p>
+          </address>
+          <a class="btn btn--accent" href="tel:+380970000000">Записатися онлайн</a>
+        </div>
+        <a class="footer__map" href="https://www.google.com/maps/search/?api=1&amp;query=Львів+вул.+Стрийська+100" target="_blank" rel="noopener noreferrer" aria-label="Знайти вул. Стрийську, 100 у Львові на Google Maps">
+          <img src="img/location-map.webp" alt="Карта з позначкою автосалону; відкриває адресу на Google Maps" width="1176" height="512" loading="lazy" decoding="async">
+        </a>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Автосалон «Кермо»</p>
+        <p><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>, <a href="https://telegram.org/" target="_blank" rel="noopener noreferrer">Telegram</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
