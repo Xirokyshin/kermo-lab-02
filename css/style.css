@@ -269,21 +269,6 @@ section, footer, .car__details {
   position: relative;
 }
 
-/* Візуально прихований checkbox зберігає доступність із клавіатури.
-На ПК visibility прибирає непотрібний перемикач із порядку Tab. */
-.nav-toggle {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  visibility: hidden;
-}
-
 .burger {
   display: none;
 }
@@ -312,7 +297,7 @@ section, footer, .car__details {
 /* 5. Автомобілі. Рядки і колонки — Flexbox, без таблиць та Grid */
 .inventory {
   padding: 80px 0;
-  border: 1px solid var(--black);
+  border: 0;
 }
 
 .inventory .container {
@@ -773,10 +758,6 @@ section, footer, .car__details {
     display: none;
   }
 
-  .nav-toggle {
-    visibility: visible;
-  }
-
   .burger {
     display: block;
     position: relative;
@@ -788,7 +769,7 @@ section, footer, .car__details {
     z-index: 3;
   }
 
-  .nav-toggle:focus-visible + .burger {
+  .burger:focus-visible {
     outline: 3px solid var(--price);
     outline-offset: 4px;
   }
@@ -827,6 +808,7 @@ section, footer, .car__details {
     right: 0;
     z-index: 2;
     max-height: calc(100dvh - 72px);
+    scroll-margin-top: 80px;
     overflow-y: auto;
     background: var(--white);
     box-shadow: var(--menu-shadow);
@@ -850,22 +832,34 @@ section, footer, .car__details {
     padding: 11px 0;
   }
 
-  .nav-toggle:checked ~ .nav {
+  .nav:target {
     visibility: visible;
     transform: translateY(0);
     opacity: 1;
   }
 
-  .nav-toggle:checked ~ .burger > span:first-child {
+  .burger--close {
+    display: none;
+  }
+
+  .nav:target ~ .burger--open {
+    display: none;
+  }
+
+  .nav:target ~ .burger--close {
+    display: block;
+  }
+
+  .burger--close > span:first-child {
     background: transparent;
   }
 
-  .nav-toggle:checked ~ .burger > span:first-child::before {
+  .burger--close > span:first-child::before {
     top: 0;
     transform: rotate(45deg);
   }
 
-  .nav-toggle:checked ~ .burger > span:first-child::after {
+  .burger--close > span:first-child::after {
     top: 0;
     transform: rotate(-45deg);
   }

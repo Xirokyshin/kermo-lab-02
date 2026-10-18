@@ -14,19 +14,13 @@
 <body>
   <a class="skip-link" href="#main">Перейти до вмісту</a>
 
-  <header class="header">
+  <header class="header" id="site-header" tabindex="-1">
     <div class="container header__inner">
       <a class="logo" href="#" aria-label="Кермо — головна">
         <span class="logo__country" aria-hidden="true">UA</span>
         <span class="logo__name" aria-hidden="true">КЕРМО</span>
       </a>
-      <!-- Порядок input → label → nav потрібний для селектора :checked ~ .nav. -->
-      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Відкрити або закрити меню" aria-controls="primary-nav">
-      <label class="burger" for="nav-toggle">
-        <span aria-hidden="true"></span>
-        <span class="visually-hidden">Відкрити або закрити меню</span>
-      </label>
-      <nav class="nav" id="primary-nav" aria-label="Основна навігація">
+      <nav class="nav" id="primary-nav" aria-label="Основна навігація" tabindex="-1">
         <ul class="menu">
           <li><a href="#cars">Авто в наявності</a></li>
           <li><a href="#inspection">Перевірка авто</a></li>
@@ -35,6 +29,13 @@
           <li><a href="#contacts">Контакти</a></li>
         </ul>
       </nav>
+      <!-- :target показує меню, а інший фрагмент адреси закриває його. -->
+      <a class="burger burger--open" href="#primary-nav" aria-label="Відкрити меню" aria-controls="primary-nav">
+        <span aria-hidden="true"></span>
+      </a>
+      <a class="burger burger--close" href="#site-header" aria-label="Закрити меню" aria-controls="primary-nav">
+        <span aria-hidden="true"></span>
+      </a>
       <div class="header__actions">
         <a class="header__phone" href="tel:+380970000000">+38 097 000 00 00</a>
         <a class="btn btn--dark" href="#contacts">Тест-драйв</a>
