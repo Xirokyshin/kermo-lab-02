@@ -29,7 +29,6 @@
           <li><a href="#contacts">Контакти</a></li>
         </ul>
       </nav>
-      <!-- :target показує меню, а інший фрагмент адреси закриває його. -->
       <a class="burger burger--open" href="#primary-nav" aria-label="Відкрити меню" aria-controls="primary-nav">
         <span aria-hidden="true"></span>
       </a>
@@ -38,7 +37,7 @@
       </a>
       <div class="header__actions">
         <a class="header__phone" href="tel:+380970000000">+38 097 000 00 00</a>
-        <a class="btn btn--dark" href="#contacts">Тест-драйв</a>
+        <a class="btn btn--dark" href="#booking">Тест-драйв</a>
       </div>
     </div>
   </header>
@@ -49,7 +48,7 @@
         <div class="hero__content">
           <h1 id="hero-title">Автосалон у Львові: перевірені авто з гарантією</h1>
           <p>Понад 80 авто в наявності, кожне з діагностикою та звітом про пробіг.</p>
-          <a class="btn btn--accent" href="#contacts">Записатися на тест-драйв</a>
+          <a class="btn btn--accent" href="#booking">Записатися на тест-драйв</a>
         </div>
       </div>
     </section>
@@ -58,7 +57,6 @@
       <div class="container">
         <h2 id="cars-title">Авто в наявності</h2>
         <p class="inventory__intro">Три найпопулярніші моделі цього тижня.</p>
-        <!-- Це список автомобілів, а не HTML-таблиця. Усі колонки побудовані на Flexbox. -->
         <div class="car-list">
           <div class="car-list__head" aria-hidden="true">
             <span class="car-list__name">Авто</span>
@@ -81,7 +79,7 @@
             </div>
             <div class="car__details" id="skoda-details">
               <p>Skoda Octavia, 2021 рік. Двигун 2.0, дизель, автоматична коробка передач. Пробіг — 64 000 км. Ціна — 17 900 $.</p>
-              <a href="#contacts">Домовитися про перегляд →</a>
+              <a href="#booking">Домовитися про перегляд →</a>
             </div>
           </article>
           <article class="car">
@@ -98,7 +96,7 @@
             </div>
             <div class="car__details" id="tiguan-details">
               <p>Volkswagen Tiguan, 2020 рік. Двигун 2.0, бензин, повний привід. Пробіг — 71 000 км. Ціна — 22 400 $.</p>
-              <a href="#contacts">Домовитися про перегляд →</a>
+              <a href="#booking">Домовитися про перегляд →</a>
             </div>
           </article>
           <article class="car">
@@ -115,7 +113,7 @@
             </div>
             <div class="car__details" id="camry-details">
               <p>Toyota Camry, 2022 рік. Двигун 2.5, гібрид, автоматична коробка передач. Пробіг — 38 000 км. Ціна — 24 900 $.</p>
-              <a href="#contacts">Домовитися про перегляд →</a>
+              <a href="#booking">Домовитися про перегляд →</a>
             </div>
           </article>
         </div>
@@ -155,7 +153,6 @@
     </section>
 
     <section class="finance" id="finance" aria-labelledby="finance-title">
-      <!-- Модуль 04: відеофон у наявному блоці обміну та кредиту. -->
       <video class="finance__media" poster="img/showroom-car-poster.webp"
              autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
         <source src="video/showroom-car.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)">
@@ -166,12 +163,35 @@
           <p>Оцінимо ваше авто, підберемо кредит і покажемо повну суму до підписання договору.</p>
           <a class="btn btn--accent" href="tel:+380970000000">Розрахувати кредит</a>
         </div>
-        <dl class="finance__terms">
-          <div><dt>Перший внесок</dt><dd>від 0%</dd></div>
-          <div><dt>Строк кредиту</dt><dd>до 60 місяців</dd></div>
-          <div><dt>Рішення банку</dt><dd>за 1 день</dd></div>
-          <div><dt>Оцінка вашого авто</dt><dd>30 хвилин</dd></div>
-        </dl>
+        <div class="finance__table" tabindex="0" role="region" aria-labelledby="finance-caption">
+          <table class="price-table">
+            <caption id="finance-caption">Умови обміну та кредитування</caption>
+            <thead>
+              <tr>
+                <th scope="col">Умова</th>
+                <th scope="col">Значення</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Перший внесок</th>
+                <td>від 0%</td>
+              </tr>
+              <tr>
+                <th scope="row">Строк кредиту</th>
+                <td>до 60 місяців</td>
+              </tr>
+              <tr>
+                <th scope="row">Рішення банку</th>
+                <td>за 1 день</td>
+              </tr>
+              <tr>
+                <th scope="row">Оцінка вашого авто</th>
+                <td>30 хвилин</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -196,6 +216,77 @@
         </div>
       </div>
     </section>
+
+    <section class="booking" id="booking" aria-labelledby="booking-title">
+      <div class="container two-columns">
+        <div class="section-intro">
+          <h2 id="booking-title">Запишіться на тест-драйв</h2>
+          <p>Залиште номер телефону й оберіть автомобіль. Бажану дату можна уточнити під час дзвінка.</p>
+        </div>
+
+        <form class="form" action="https://formspree.io/f/mqpqepln" method="post">
+          <fieldset class="form__group">
+            <legend>Ваші контакти</legend>
+
+            <label for="booking-name">Ім’я (обов’язково)</label>
+            <input
+              class="form__field"
+              type="text"
+              id="booking-name"
+              name="name"
+              autocomplete="given-name"
+              minlength="2"
+              maxlength="80"
+              required
+            >
+
+            <label for="booking-phone">Телефон (обов’язково)</label>
+            <input
+              class="form__field"
+              type="tel"
+              id="booking-phone"
+              name="phone"
+              autocomplete="tel"
+              pattern="[+]380[0-9]{9}"
+              title="+380 і дев’ять цифр без пробілів"
+              aria-describedby="booking-phone-hint"
+              required
+            >
+            <p class="form__hint" id="booking-phone-hint">Формат: +380 і дев’ять цифр без пробілів.</p>
+          </fieldset>
+
+          <fieldset class="form__group">
+            <legend>Тест-драйв</legend>
+
+            <label for="booking-car">Автомобіль (обов’язково)</label>
+            <select class="form__field" id="booking-car" name="car" required>
+              <option value="">Оберіть модель</option>
+              <option value="skoda-octavia">Skoda Octavia</option>
+              <option value="volkswagen-tiguan">Volkswagen Tiguan</option>
+              <option value="toyota-camry">Toyota Camry</option>
+            </select>
+
+            <label for="booking-date">Бажана дата (необов’язково)</label>
+            <input class="form__field" type="date" id="booking-date" name="date">
+
+            <label for="booking-message">Коментар (необов’язково)</label>
+            <textarea class="form__field" id="booking-message" name="message" rows="3" maxlength="500"></textarea>
+          </fieldset>
+
+          <div class="form__trap" hidden>
+            <label for="booking-gotcha">Залиште це поле порожнім</label>
+            <input type="text" id="booking-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form__consent">
+            <input type="checkbox" id="booking-consent" name="consent" value="yes" required>
+            <label for="booking-consent">Погоджуюся на обробку даних для заявки (обов’язково).</label>
+          </div>
+          <p class="form__hint">Ім’я, телефон та інші введені дані передаються через Formspree, щоб отримувач міг опрацювати заявку та зв’язатися з вами.</p>
+          <button class="btn btn--accent form__submit" type="submit">Надіслати заявку на тест-драйв</button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="footer" id="contacts">
@@ -208,7 +299,7 @@
             <p><span>Адреса</span>Львів, вул. Стрийська, 100</p>
             <p><span>Графік</span>Щодня з 9:00 до 20:00</p>
           </address>
-          <a class="btn btn--accent" href="tel:+380970000000">Записатися онлайн</a>
+          <a class="btn btn--accent" href="#booking">Записатися онлайн</a>
         </div>
         <a class="footer__map" href="https://www.google.com/maps/search/?api=1&amp;query=Львів+вул.+Стрийська+100" target="_blank" rel="noopener noreferrer" aria-label="Знайти вул. Стрийську, 100 у Львові на Google Maps">
           <img src="img/location-map.webp" alt="Карта з позначкою автосалону; відкриває адресу на Google Maps" width="1176" height="512" loading="lazy" decoding="async">
