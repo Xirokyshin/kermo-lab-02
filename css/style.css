@@ -130,7 +130,6 @@ a[href]:not(.btn, .logo, .burger, .footer__map):hover {
 
 a[href]:not(.btn):active {
   opacity: 1;
-  transition: none;
 }
 
 a[href]:not(.btn, .logo, .burger, .footer__map):active {
@@ -198,7 +197,13 @@ section, footer, .car__details {
   line-height: 26px;
   font-weight: 700;
   text-align: center;
-  transition: background-color .2s ease, color .2s ease;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
 }
 
 .btn--dark {
@@ -352,6 +357,34 @@ section, footer, .car__details {
 
 .hero__content {
   max-width: 588px;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__content > h1 {
+  animation: fade-up .3s ease-out;
+}
+
+.hero__content > p {
+  animation: fade-up .3s ease-out .08s backwards;
+}
+
+.hero__content > .btn {
+  animation: fade-up .3s ease-out .16s backwards;
+}
+
+.hero__content:focus-within > * {
+  animation: none;
 }
 
 .hero__content p {
@@ -839,7 +872,7 @@ textarea.form__field {
 }
 
 .btn:active:not(:disabled) {
-  transition: none;
+  transform: translateY(0);
 }
 
 .btn--dark:active:not(:disabled) {
@@ -897,12 +930,18 @@ textarea.form__field {
   border: 2px solid var(--line);
   border-radius: var(--radius-card);
   background: var(--white);
-  transition: background-color .2s ease, box-shadow .2s ease;
+  transition: background-color .2s ease, box-shadow .2s ease, transform .22s ease;
 }
 
 .card:hover {
   background: var(--soft);
   box-shadow: var(--card-shadow);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+  }
 }
 
 .plan {
@@ -1104,7 +1143,7 @@ textarea.form__field {
     width: 24px;
     height: 2px;
     background: var(--accent);
-    transition: transform .25s ease, background-color .25s ease, top .25s ease;
+    transition: transform .25s ease, background-color .25s ease;
   }
 
   .burger > span:first-child {
@@ -1178,13 +1217,11 @@ textarea.form__field {
   }
 
   .burger--close > span:first-child::before {
-    top: 0;
-    transform: rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
   }
 
   .burger--close > span:first-child::after {
-    top: 0;
-    transform: rotate(-45deg);
+    transform: translateY(-10px) rotate(-45deg);
   }
 
   .car-list {
@@ -1449,10 +1486,17 @@ textarea.form__field {
     background-image: url("../img/showroom-car-poster.webp");
   }
 
-  .burger > span:first-child,
-  .burger > span:first-child::before,
-  .burger > span:first-child::after,
-  .nav, .btn, .card, a[href]:not(.btn) {
-    transition: none;
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn:hover:not(:disabled),
+  .btn:active:not(:disabled),
+  .card:hover {
+    transform: none;
   }
 }
